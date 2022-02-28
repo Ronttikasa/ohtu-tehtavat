@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import re
-=======
->>>>>>> 2c81d6214f66db8309e5f44b13e0b967905a7f41
 from entities.user import User
 from repositories.user_repository import (
     user_repository as default_user_repository

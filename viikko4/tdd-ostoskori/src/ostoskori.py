@@ -7,7 +7,10 @@ class Ostoskori:
         # ostoskori tallettaa Ostos-oliota, yhden per korissa oleva Tuote
 
     def tavaroita_korissa(self):
-        return len(self.sisalto)
+        lukumaara = 0
+        for ostos in self.sisalto:
+            lukumaara += ostos.lukumaara()
+        return lukumaara
 
     def hinta(self):
         hinta = 0
@@ -18,6 +21,10 @@ class Ostoskori:
         # kertoo korissa olevien ostosten yhteenlasketun hinnan
 
     def lisaa_tuote(self, lisattava: Tuote):
+        for ostos in self.sisalto:
+            if ostos.tuotteen_nimi() == lisattava.nimi():
+                ostos.muuta_lukumaaraa(1)
+                return
         uusi_ostos = Ostos(lisattava)
         self.sisalto.append(uusi_ostos)
 

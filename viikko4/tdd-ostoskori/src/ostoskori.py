@@ -4,7 +4,7 @@ from ostos import Ostos
 class Ostoskori:
     def __init__(self):
         self.sisalto = []
-        # ostoskori tallettaa Ostos-oliota, yhden per korissa oleva Tuote
+        # ostoskori tallettaa Ostos-olioita, yhden per korissa oleva Tuote
 
     def tavaroita_korissa(self):
         lukumaara = 0
@@ -18,7 +18,6 @@ class Ostoskori:
             for ostos in self.sisalto:
                 hinta += ostos.hinta()
         return hinta
-        # kertoo korissa olevien ostosten yhteenlasketun hinnan
 
     def lisaa_tuote(self, lisattava: Tuote):
         for ostos in self.sisalto:
@@ -29,7 +28,6 @@ class Ostoskori:
         self.sisalto.append(uusi_ostos)
 
     def poista_tuote(self, poistettava: Tuote):
-        # poistaa tuotteen
         for ostos in self.sisalto:
             if ostos.tuotteen_nimi() == poistettava.nimi():
                 ostos.muuta_lukumaaraa(-1)
@@ -39,7 +37,6 @@ class Ostoskori:
 
     def tyhjenna(self):
         self.sisalto = []
-        # tyhjentää ostoskorin
 
     def ostokset(self):
         return self.sisalto

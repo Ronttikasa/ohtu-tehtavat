@@ -33,7 +33,9 @@ class Ostoskori:
         for ostos in self.sisalto:
             if ostos.tuotteen_nimi() == poistettava.nimi():
                 ostos.muuta_lukumaaraa(-1)
-                return
+                if ostos.lukumaara() == 0:
+                    self.sisalto.remove(ostos)
+                    return
 
     def tyhjenna(self):
         pass

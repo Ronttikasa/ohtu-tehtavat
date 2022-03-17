@@ -12,7 +12,7 @@ class TennisGame:
             self.player2_score += 1
 
     def score_to_silly_name(self, score):
-        score_names = ["Love", "Fifteen", "Thirty", "Forty"]
+        score_names = {0: "Love", 1: "Fifteen", 2: "Thirty", 3: "Forty"}
         return score_names[score]
 
     def score_difference(self):
@@ -32,7 +32,7 @@ class TennisGame:
         score_diff = self.score_difference()
 
         if score_diff == 0:
-            if self.player1_score in [0,1,2]:
+            if self.player1_score < 3:
                 score = "{}-All".format(self.score_to_silly_name(self.player1_score))
             else:
                 score = "Deuce"

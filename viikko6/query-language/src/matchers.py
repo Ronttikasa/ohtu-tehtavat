@@ -17,7 +17,7 @@ class Or:
         for matcher in self._matchers:
             if matcher.matches(player):
                 return True
-    
+                
         return False
 
 class PlaysIn:
